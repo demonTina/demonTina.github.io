@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>my_first_blog</title>
-    <url>/2021/09/22/my-first-blog/</url>
-    <content><![CDATA[<p>test</p>
+    <title>aaa</title>
+    <url>/2021/09/22/aaa/</url>
+    <content><![CDATA[<p>dsakjd</p>
 ]]></content>
-      <categories>
-        <category>杂谈</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -29,6 +23,18 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>my_first_blog</title>
+    <url>/2021/09/22/my-first-blog/</url>
+    <content><![CDATA[<p>test</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
   </entry>
   <entry>
     <title>test</title>
