@@ -30,21 +30,55 @@
 ]]></content>
   </entry>
   <entry>
-    <title>my_first_blog</title>
-    <url>/2021/09/22/my-first-blog/</url>
-    <content><![CDATA[<p>test</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>test</title>
     <url>/2021/09/22/test/</url>
     <content><![CDATA[<p>00000</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Ip-Address</title>
+    <url>/2021/09/22/ipnet/</url>
+    <content><![CDATA[<h1 id="Ip-Address"><a href="#Ip-Address" class="headerlink" title="Ip-Address"></a>Ip-Address</h1><p>​    这是一篇关于IP地址的文章，本篇文章将阐述IP地址与子网掩码和网关的关系。</p>
+<p>​    IP地址是一个由四个8位二进制数字组成，转换成十进制的IP地址如192.168.1.2。其中这四个数字的最大值是255，也就是说IP地址是这样组成的(0-255).(0-255).(0-255).(0-255)。</p>
+<p>​    简单的叙述了IP地址，接下来我们来谈一谈子网掩码，子网掩码是来判断两个IP地址是否处于同一网段的重要依据。子网掩码(subnet mask)又叫<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%8E%A9%E7%A0%81/7862514">网络掩码</a>、<a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E6%8E%A9%E7%A0%81/8623995">地址掩码</a>、子网络遮罩，它用来指明一个<a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80">IP地址</a>的哪些位标识的是<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a>所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能单独存在，它必须结合IP地址一起使用。子网掩码只有一个作用，就是将某个IP地址划分成<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80/9765459">网络地址</a>和<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80/9765500">主机地址</a>两部分。子网掩码分成这几种0.0.0.0 、255.0.0.0 、255.255.0.0 、255.255.255.0 、255.255.255.255。其中0.0.0.0和255.255.255.255基本上不会使用。</p>
+<pre><code>## 子网掩码与IP地址的关系:
+</code></pre>
+<p>​    假如子网掩码为255.255.255.0。那么IP地址的前三位就是网络地址，最后一位是主机地址。例如:192.168.1.2，那么192.168.1是网络地址，2就是主机地址。例如：192.168.1.3，同理可得192.168.1是网络地址，3是主机地址。像这种192.168.1.2和192.168.1.3这两IP地址前三位一样的就被成为在同一网段。两台主机是可以相互ping通的。而如果是192.168.1.2和192.168.2.3这样的IP地址，由于前三位不一样那么这两台主机就无法相互ping通。</p>
+<p>​    为什么说子网掩码是判断IP地址的重要依据呢？咱们来看看这两个子网掩码的作用，一个子网掩码是255.255.0.0，另一个子网掩码是255.255.255.0。</p>
+<p>1.子网掩码是255.255.0.0</p>
+<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
+<p>由于子网掩码是255.255.0.0所以他的网络地址实际上是前两位，也就是192.168，而主机地址是3.2，另一个主机地址是2.2。由于网络地址都一样是192.168，所以这两台主机处于同一网段。</p>
+<p>2.子网掩码是255.255.255.0</p>
+<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
+<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.3 和 192.168.2，而主机地址是2，另一个主机地址是2。由于网络地址不一样，所以这两台主机不处于同一网段。</p>
+<p>假如这两台主机的IP地址是这样的,子网掩码是255.255.255.0</p>
+<p>一台主机的ip地址是192.168.5.2         另一台主机的ip地址是192.168.5.7</p>
+<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.5 和 192.168.5，而主机地址是2，另一个主机地址是7。由于网络地址一样，所以这两台主机处于同一网段。</p>
+<p>​    这样你是不是已经理解了子网掩码与网段之间的关系？那么接下来我们来了解一下网段与IP地址数量的关系。</p>
+<h2 id="网段与IP地址数量的关系"><a href="#网段与IP地址数量的关系" class="headerlink" title="网段与IP地址数量的关系"></a>网段与IP地址数量的关系</h2><p>如果子网掩码是255.255.255.0</p>
+<p>一个网段是192.168.3，那么他有多少个主机地址？</p>
+<p>答案是 256个</p>
+<p>即192.168.3.0</p>
+<p>192.168.3.1</p>
+<p>192.168.3.2</p>
+<p>…</p>
+<p>192.168.3.255</p>
+<p>如果子网掩码是255.255.0.0</p>
+<p>一个网段是173.12，那么他有多少个主机地址</p>
+<p>答案是 2的16次方个</p>
+<h1 id="什么是网关"><a href="#什么是网关" class="headerlink" title="什么是网关"></a>什么是网关</h1><p>​    网关(Gateway)又称<a href="https://baike.baidu.com/item/%E7%BD%91%E9%97%B4%E8%BF%9E%E6%8E%A5%E5%99%A8/2943752">网间连接器</a>、<a href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE%E8%BD%AC%E6%8D%A2">协议转换</a>器。网关在网络层以上实现<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E/108997">网络互连</a>，是复杂的网络互连设备，仅用于两个高层协议不同的网络互连。网关既可以用于<a href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91/422004">广域网</a>互连，也可以用于<a href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a>互连。 网关是一种充当转换重任的<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/7210959">计算机系统</a>或设备。使用在不同的<a href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/3351624">通信协议</a>、数据格式或语言，甚至<a href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>完全不同的两种系统之间，网关是一个翻译器。与<a href="https://baike.baidu.com/item/%E7%BD%91%E6%A1%A5/99310">网桥</a>只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同层–<a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82/4329788">应用层</a>。</p>
+<p>通常网关地址是网络地址 + 1</p>
+<p>子网掩码是255.255.255.0</p>
+<p>网段是192.168.3</p>
+<p>那么网关地址一般为192.168.3.1</p>
+<p>255.255.0.0是缺省子网掩码，跟网关没多大关系</p>
+<h1 id="广播地址"><a href="#广播地址" class="headerlink" title="广播地址"></a>广播地址</h1><p>​    广播地址**(Broadcast Address)是专门用于同时向网络中所有<a href="https://baike.baidu.com/item/%E5%B7%A5%E4%BD%9C%E7%AB%99/217955">工作站</a>进行发送的一个**地址。在使用[TCP/IP 协议](<a href="https://baike.baidu.com/item/TCP%2FIP">https://baike.baidu.com/item/TCP%2FIP</a> 协议/2116790)的网络中，<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a><a href="https://baike.baidu.com/item/%E6%A0%87%E8%AF%86/6396929">标识</a>段host ID 为全1 的IP 地址为广播地址，广播的分组传送给host ID段所涉及的所有<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA/140338">计算机</a>。例如，对于10.1.1.0 （255.0.0.0 ）网段，其直播<a href="https://baike.baidu.com/item/%E5%B9%BF%E6%92%AD/656406">广播</a>地址为10.255.255.255 （255 即为2 进制的11111111 ），当发出一个目的地址为10.255.255.255 的分组（<a href="https://baike.baidu.com/item/%E5%B0%81%E5%8C%85/2017669">封包</a>）时，它将被分发给该<a href="https://baike.baidu.com/item/%E7%BD%91%E6%AE%B5/11026985">网段</a>上的所有计算机。</p>
+]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
   </entry>
 </search>
