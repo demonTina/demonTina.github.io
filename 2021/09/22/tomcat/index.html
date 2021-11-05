@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>test - 奈何&#39;s blog</title>
+    <title>tomcat configure - 奈何&#39;s blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="00000
-"> 
+    <meta name="description" content="关于tomcat 9环境配置问题​    最近刚学javaweb得时候遇到了tomcat的环境配置问题，以下是相关的配置经验。
+​    首先我起初是把环境变量配置在了用户变量中，结果造成一直是CA,"> 
     <meta name="author" content="奈何"> 
     <link rel="alternative" href="atom.xml" title="奈何&#39;s blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -29,7 +29,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">test</h3>
+    <h3 class="subtitle">tomcat configure</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -44,14 +44,21 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">test</h1>
+        <h1 class="title">tomcat configure</h1>
         <div class="stuff">
             <span>九月 22, 2021</span>
             
 
         </div>
         <div class="content markdown">
-            <p>00000</p>
+            <h1 id="关于tomcat-9环境配置问题"><a href="#关于tomcat-9环境配置问题" class="headerlink" title="关于tomcat 9环境配置问题"></a>关于tomcat 9环境配置问题</h1><p>​    最近刚学javaweb得时候遇到了tomcat的环境配置问题，以下是相关的配置经验。</p>
+<p>​    首先我起初是把环境变量配置在了用户变量中，结果造成一直是CATALINA_HOME未定义问题。     解决方案:把环境变量设置到系统变量.</p>
+<p>​    第二个问题，缺少JRE_HOME          解决方案:配置JRE_HOME环境变量</p>
+<p>​    以下是环境变量的路径:</p>
+<p>​    JAVA_HOME        D:\Program Files\Java\jdk1.8.0_201</p>
+<p>​    JRE_HOME        D:\Program Files\Java\jdk1.8.0_201\jre</p>
+<p>​    CATALINA_HOME        D:\apache-tomcat-9.0.54</p>
+<p>​    Path                %JAVA_HOME%\bin;%JRE_HOME%\bin;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin;</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

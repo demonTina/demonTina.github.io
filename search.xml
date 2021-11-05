@@ -30,12 +30,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2021/09/22/test/</url>
-    <content><![CDATA[<p>00000</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Ip-Address</title>
     <url>/2021/09/22/ipnet/</url>
     <content><![CDATA[<h1 id="Ip-Address"><a href="#Ip-Address" class="headerlink" title="Ip-Address"></a>Ip-Address</h1><p>​    这是一篇关于IP地址的文章，本篇文章将阐述IP地址与子网掩码和网关的关系。</p>
@@ -80,5 +74,18 @@
       <tags>
         <tag>网络</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>tomcat configure</title>
+    <url>/2021/09/22/tomcat/</url>
+    <content><![CDATA[<h1 id="关于tomcat-9环境配置问题"><a href="#关于tomcat-9环境配置问题" class="headerlink" title="关于tomcat 9环境配置问题"></a>关于tomcat 9环境配置问题</h1><p>​    最近刚学javaweb得时候遇到了tomcat的环境配置问题，以下是相关的配置经验。</p>
+<p>​    首先我起初是把环境变量配置在了用户变量中，结果造成一直是CATALINA_HOME未定义问题。     解决方案:把环境变量设置到系统变量.</p>
+<p>​    第二个问题，缺少JRE_HOME          解决方案:配置JRE_HOME环境变量</p>
+<p>​    以下是环境变量的路径:</p>
+<p>​    JAVA_HOME        D:\Program Files\Java\jdk1.8.0_201</p>
+<p>​    JRE_HOME        D:\Program Files\Java\jdk1.8.0_201\jre</p>
+<p>​    CATALINA_HOME        D:\apache-tomcat-9.0.54</p>
+<p>​    Path                %JAVA_HOME%\bin;%JRE_HOME%\bin;%CATALINA_HOME%\lib;%CATALINA_HOME%\bin;</p>
+]]></content>
   </entry>
 </search>
