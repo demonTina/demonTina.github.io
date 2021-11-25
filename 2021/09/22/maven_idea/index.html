@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>maven配置及idea中maven配置 - 奈何&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Maven安装与基本配置一.Maven下载Maven的官网地址: https://maven.apache.org/
+
+在此处下载即可，不过有时候我们想下载老版本的maven，这时候我们就可以这样进,"> 
+    <meta name="author" content="奈何"> 
+    <link rel="alternative" href="atom.xml" title="奈何&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">奈何&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">maven配置及idea中maven配置</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">maven配置及idea中maven配置</h1>
+        <div class="stuff">
+            <span>九月 22, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Maven安装与基本配置"><a href="#Maven安装与基本配置" class="headerlink" title="Maven安装与基本配置"></a>Maven安装与基本配置</h1><h3 id="一-Maven下载"><a href="#一-Maven下载" class="headerlink" title="一.Maven下载"></a>一.Maven下载</h3><p>Maven的官网地址: <a target="_blank" rel="noopener" href="https://maven.apache.org/">https://maven.apache.org/</a></p>
+<p><img src="maven_idea.assets/image-20211125172005070.png" alt="image-20211125172005070"></p>
+<p>在此处下载即可，不过有时候我们想下载老版本的maven，这时候我们就可以这样进入其他版本的下载页面。</p>
+<p><img src="maven_idea.assets/image-20211125172235805.png" alt="image-20211125172235805"></p>
+<p><img src="maven_idea.assets/image-20211125172255776.png" alt="image-20211125172255776"></p>
+<p>这个的网址是: <a target="_blank" rel="noopener" href="https://archive.apache.org/dist/maven/maven-3/">https://archive.apache.org/dist/maven/maven-3/</a></p>
+<h3 id="二-Maven的安装"><a href="#二-Maven的安装" class="headerlink" title="二.Maven的安装"></a>二.Maven的安装</h3><p>从官方网站下载的是一个压缩包，我们解压到一个位置后进行环境变量配置。</p>
+<p>新建一个环境变量: MAVEN_HOME</p>
+<p>MAVEN_HOME的路径是这样的，根据自身而定。</p>
+<p>F:\workspace\IDEAfile\apache-maven-3.3.9</p>
+<p><img src="maven_idea.assets/image-20211125172646136.png" alt="image-20211125172646136"></p>
+<p>之后添加到Path变量之中</p>
+<p>%MAVEN_HOME%\bin</p>
+<p><img src="maven_idea.assets/image-20211125172743234.png" alt="image-20211125172743234"></p>
+<p>然后通过cmd命令进行确认环境变量是否配置成功:</p>
+<p><img src="maven_idea.assets/image-20211125172836762.png" alt="image-20211125172836762"></p>
+<p>只要是这样的界面就说明你的环境变量配置成功了。</p>
+<h3 id="三-setting-xml配置"><a href="#三-setting-xml配置" class="headerlink" title="三.setting.xml配置"></a>三.setting.xml配置</h3><p>这个文件的位置位于apache-maven-3.3.9目录下的conf目录中。</p>
+<p><img src="maven_idea.assets/image-20211125173155885.png" alt="image-20211125173155885"></p>
+<p><img src="maven_idea.assets/image-20211125173012928.png" alt="image-20211125173012928"></p>
+<p>根据该文件的注释进行更改仓库路径</p>
+<p>由于maven的中央仓库在国外所以我们有必要改成国内镜像源。</p>
+<p>根据提示进行更改:</p>
+<p><img src="maven_idea.assets/image-20211125173317386.png" alt="image-20211125173317386"></p>
+<p>这里我直接把要添加的代码放在这里，以便拷贝。</p>
+<mirror>
+        <id>aliyunmaven</id>
+        <mirrorOf>*</mirrorOf>
+        <name>阿里云公共仓库</name>
+        <url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+
+<h3 id="四-IDEA配置maven"><a href="#四-IDEA配置maven" class="headerlink" title="四.IDEA配置maven"></a>四.IDEA配置maven</h3><p>因为IDEA是内置maven的，但是不好更改setting.xml,所以一般不常用.</p>
+<p>首先在setting中修改成自己下载的maven版本，以及setting.xml路径。</p>
+<p><img src="maven_idea.assets/image-20211125173716543.png" alt="image-20211125173716543"></p>
+<p>Maven home directory:    这个是要更改的自己下载的maven路径</p>
+<p>User settings file:    这个是配置文件，我们需要勾上Override选项覆盖IDEA自带的配置。找到自己第三步中的那个setting.xml的文件路径</p>
+<p>Local repository:    本地仓库路径(这个会根据Maven home directory的改变而改变)    #我们不需要更改了</p>
+<p><img src="maven_idea.assets/image-20211125174053715.png" alt="image-20211125174053715"></p>
+<p><strong>新版本的阿里云镜像不再支持http下载，只支持https下载，再次做出修改配置</strong></p>
+<p>-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true</p>
+<p>第二个选项找到自己要用的JDK版本即可</p>
+<p>在创建Maven工程的时候，每次都要下载一下模板，为了加快工程的创建我们可以使用本地的，这时候我们只需要更改下图的选项</p>
+<p><img src="maven_idea.assets/image-20211125174409229.png" alt="image-20211125174409229"></p>
+<p>VM Options:    -DarchetypeCatalog=internal</p>
+<p>我们还需要改一个设置，这个设置跟上述一样即可</p>
+<p>这个设置是:</p>
+<p><img src="maven_idea.assets/image-20211125174641921.png" alt="image-20211125174641921"></p>
+<p>这个是创建新工程时的设置。刚才那个时目前工程的设置。两个都改成上述的设置即可。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
