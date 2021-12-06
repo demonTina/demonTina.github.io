@@ -1,70 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ip-Address</title>
-    <url>/2021/09/22/ipnet/</url>
-    <content><![CDATA[<h1 id="Ip-Address"><a href="#Ip-Address" class="headerlink" title="Ip-Address"></a>Ip-Address</h1><p>​    这是一篇关于IP地址的文章，本篇文章将阐述IP地址与子网掩码和网关的关系。</p>
-<p>​    IP地址是一个由四个8位二进制数字组成，转换成十进制的IP地址如192.168.1.2。其中这四个数字的最大值是255，也就是说IP地址是这样组成的(0-255).(0-255).(0-255).(0-255)。</p>
-<p>​    简单的叙述了IP地址，接下来我们来谈一谈子网掩码，子网掩码是来判断两个IP地址是否处于同一网段的重要依据。子网掩码(subnet mask)又叫<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%8E%A9%E7%A0%81/7862514">网络掩码</a>、<a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E6%8E%A9%E7%A0%81/8623995">地址掩码</a>、子网络遮罩，它用来指明一个<a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80">IP地址</a>的哪些位标识的是<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a>所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能单独存在，它必须结合IP地址一起使用。子网掩码只有一个作用，就是将某个IP地址划分成<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80/9765459">网络地址</a>和<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80/9765500">主机地址</a>两部分。子网掩码分成这几种0.0.0.0 、255.0.0.0 、255.255.0.0 、255.255.255.0 、255.255.255.255。其中0.0.0.0和255.255.255.255基本上不会使用。</p>
-<pre><code>## 子网掩码与IP地址的关系:
-</code></pre>
-<p>​    假如子网掩码为255.255.255.0。那么IP地址的前三位就是网络地址，最后一位是主机地址。例如:192.168.1.2，那么192.168.1是网络地址，2就是主机地址。例如：192.168.1.3，同理可得192.168.1是网络地址，3是主机地址。像这种192.168.1.2和192.168.1.3这两IP地址前三位一样的就被成为在同一网段。两台主机是可以相互ping通的。而如果是192.168.1.2和192.168.2.3这样的IP地址，由于前三位不一样那么这两台主机就无法相互ping通。</p>
-<p>​    为什么说子网掩码是判断IP地址的重要依据呢？咱们来看看这两个子网掩码的作用，一个子网掩码是255.255.0.0，另一个子网掩码是255.255.255.0。</p>
-<p>1.子网掩码是255.255.0.0</p>
-<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
-<p>由于子网掩码是255.255.0.0所以他的网络地址实际上是前两位，也就是192.168，而主机地址是3.2，另一个主机地址是2.2。由于网络地址都一样是192.168，所以这两台主机处于同一网段。</p>
-<p>2.子网掩码是255.255.255.0</p>
-<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
-<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.3 和 192.168.2，而主机地址是2，另一个主机地址是2。由于网络地址不一样，所以这两台主机不处于同一网段。</p>
-<p>假如这两台主机的IP地址是这样的,子网掩码是255.255.255.0</p>
-<p>一台主机的ip地址是192.168.5.2         另一台主机的ip地址是192.168.5.7</p>
-<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.5 和 192.168.5，而主机地址是2，另一个主机地址是7。由于网络地址一样，所以这两台主机处于同一网段。</p>
-<p>​    这样你是不是已经理解了子网掩码与网段之间的关系？那么接下来我们来了解一下网段与IP地址数量的关系。</p>
-<h2 id="网段与IP地址数量的关系"><a href="#网段与IP地址数量的关系" class="headerlink" title="网段与IP地址数量的关系"></a>网段与IP地址数量的关系</h2><p>如果子网掩码是255.255.255.0</p>
-<p>一个网段是192.168.3，那么他有多少个主机地址？</p>
-<p>答案是 256个</p>
-<p>即192.168.3.0</p>
-<p>192.168.3.1</p>
-<p>192.168.3.2</p>
-<p>…</p>
-<p>192.168.3.255</p>
-<p>如果子网掩码是255.255.0.0</p>
-<p>一个网段是173.12，那么他有多少个主机地址</p>
-<p>答案是 2的16次方个</p>
-<h1 id="什么是网关"><a href="#什么是网关" class="headerlink" title="什么是网关"></a>什么是网关</h1><p>​    网关(Gateway)又称<a href="https://baike.baidu.com/item/%E7%BD%91%E9%97%B4%E8%BF%9E%E6%8E%A5%E5%99%A8/2943752">网间连接器</a>、<a href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE%E8%BD%AC%E6%8D%A2">协议转换</a>器。网关在网络层以上实现<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E/108997">网络互连</a>，是复杂的网络互连设备，仅用于两个高层协议不同的网络互连。网关既可以用于<a href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91/422004">广域网</a>互连，也可以用于<a href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a>互连。 网关是一种充当转换重任的<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/7210959">计算机系统</a>或设备。使用在不同的<a href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/3351624">通信协议</a>、数据格式或语言，甚至<a href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>完全不同的两种系统之间，网关是一个翻译器。与<a href="https://baike.baidu.com/item/%E7%BD%91%E6%A1%A5/99310">网桥</a>只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同层–<a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82/4329788">应用层</a>。</p>
-<p>通常网关地址是网络地址 + 1</p>
-<p>子网掩码是255.255.255.0</p>
-<p>网段是192.168.3</p>
-<p>那么网关地址一般为192.168.3.1</p>
-<p>255.255.0.0是缺省子网掩码，跟网关没多大关系</p>
-<h1 id="广播地址"><a href="#广播地址" class="headerlink" title="广播地址"></a>广播地址</h1><p>​    广播地址**(Broadcast Address)是专门用于同时向网络中所有<a href="https://baike.baidu.com/item/%E5%B7%A5%E4%BD%9C%E7%AB%99/217955">工作站</a>进行发送的一个**地址。在使用[TCP/IP 协议](<a href="https://baike.baidu.com/item/TCP%2FIP">https://baike.baidu.com/item/TCP%2FIP</a> 协议/2116790)的网络中，<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a><a href="https://baike.baidu.com/item/%E6%A0%87%E8%AF%86/6396929">标识</a>段host ID 为全1 的IP 地址为广播地址，广播的分组传送给host ID段所涉及的所有<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA/140338">计算机</a>。例如，对于10.1.1.0 （255.0.0.0 ）网段，其直播<a href="https://baike.baidu.com/item/%E5%B9%BF%E6%92%AD/656406">广播</a>地址为10.255.255.255 （255 即为2 进制的11111111 ），当发出一个目的地址为10.255.255.255 的分组（<a href="https://baike.baidu.com/item/%E5%B0%81%E5%8C%85/2017669">封包</a>）时，它将被分发给该<a href="https://baike.baidu.com/item/%E7%BD%91%E6%AE%B5/11026985">网段</a>上的所有计算机。</p>
-]]></content>
-      <categories>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/09/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>git_idea</title>
     <url>/2021/11/25/git-idea/</url>
     <content><![CDATA[<h1 id="Git的安装与配置以及IDEA集成Git的配置"><a href="#Git的安装与配置以及IDEA集成Git的配置" class="headerlink" title="Git的安装与配置以及IDEA集成Git的配置"></a>Git的安装与配置以及IDEA集成Git的配置</h1><h3 id="一-Git的安装"><a href="#一-Git的安装" class="headerlink" title="一.Git的安装"></a>一.Git的安装</h3><p>​    Git的官网:<a href="https://git-scm.com/">https://git-scm.com/</a></p>
@@ -85,15 +21,15 @@
 <p><img src="/2021/11/25/git-idea/image-20211125213957939.png" alt="image-20211125213957939"></p>
 <p><img src="/2021/11/25/git-idea/image-20211125214007804.png" alt="image-20211125214007804"></p>
 <p>此时Git已经完成安装了</p>
-<h3 id="二-Git的配置"><a href="#二-Git的配置" class="headerlink" title="二.Git的配置"></a>二.Git的配置</h3><h4 id="设置签名"><a href="#设置签名" class="headerlink" title="设置签名"></a>设置签名</h4><p>用户名：tom<br>Email 地址：<a href="mailto:&#103;&#111;&#111;&#100;&#77;&#x6f;&#114;&#110;&#x69;&#110;&#103;&#64;&#97;&#x74;&#x67;&#117;&#x69;&#103;&#x75;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#111;&#111;&#100;&#77;&#x6f;&#114;&#110;&#x69;&#110;&#103;&#64;&#97;&#x74;&#x67;&#117;&#x69;&#103;&#x75;&#x2e;&#99;&#x6f;&#x6d;</a><br>作用：区分不同开发人员的身份<br>辨析：这里设置的签名和登录远程库(代码托管中心)的账号、密码没有任何关<br>系。<br>命令<br>项目级别/仓库级别：仅在当前本地库范围内有效<br>    git config user.name tom_pro<br>    git config user.email <a href="mailto:&#x67;&#111;&#x6f;&#x64;&#x4d;&#x6f;&#114;&#110;&#105;&#x6e;&#103;&#95;&#x70;&#x72;&#x6f;&#x40;&#x61;&#116;&#103;&#117;&#105;&#103;&#x75;&#x2e;&#99;&#111;&#109;">&#x67;&#111;&#x6f;&#x64;&#x4d;&#x6f;&#114;&#110;&#105;&#x6e;&#103;&#95;&#x70;&#x72;&#x6f;&#x40;&#x61;&#116;&#103;&#117;&#105;&#103;&#x75;&#x2e;&#99;&#111;&#109;</a><br>信息保存位置：./.git/config 文件</p>
+<h3 id="二-Git的配置"><a href="#二-Git的配置" class="headerlink" title="二.Git的配置"></a>二.Git的配置</h3><h4 id="设置签名"><a href="#设置签名" class="headerlink" title="设置签名"></a>设置签名</h4><p>用户名：tom<br>Email 地址：<a href="mailto:&#x67;&#x6f;&#x6f;&#100;&#77;&#x6f;&#114;&#110;&#105;&#x6e;&#103;&#x40;&#97;&#x74;&#x67;&#x75;&#x69;&#103;&#117;&#46;&#x63;&#111;&#109;">&#x67;&#x6f;&#x6f;&#100;&#77;&#x6f;&#114;&#110;&#105;&#x6e;&#103;&#x40;&#97;&#x74;&#x67;&#x75;&#x69;&#103;&#117;&#46;&#x63;&#111;&#109;</a><br>作用：区分不同开发人员的身份<br>辨析：这里设置的签名和登录远程库(代码托管中心)的账号、密码没有任何关<br>系。<br>命令<br>项目级别/仓库级别：仅在当前本地库范围内有效<br>    git config user.name tom_pro<br>    git config user.email <a href="mailto:&#x67;&#x6f;&#x6f;&#x64;&#77;&#111;&#114;&#x6e;&#105;&#x6e;&#x67;&#95;&#112;&#x72;&#111;&#64;&#x61;&#116;&#103;&#117;&#x69;&#103;&#117;&#46;&#x63;&#111;&#x6d;">&#x67;&#x6f;&#x6f;&#x64;&#77;&#111;&#114;&#x6e;&#105;&#x6e;&#x67;&#95;&#112;&#x72;&#111;&#64;&#x61;&#116;&#103;&#117;&#x69;&#103;&#117;&#46;&#x63;&#111;&#x6d;</a><br>信息保存位置：./.git/config 文件</p>
 <p>系统用户级别：登录当前操作系统的用户范围</p>
-<p>​    git config –global user.name tom_glb<br>​    git config –global <a href="mailto:&#x67;&#111;&#111;&#100;&#x4d;&#111;&#114;&#110;&#x69;&#x6e;&#103;&#x5f;&#x70;&#114;&#111;&#64;&#97;&#x74;&#103;&#x75;&#105;&#103;&#x75;&#x2e;&#x63;&#111;&#109;">&#x67;&#111;&#111;&#100;&#x4d;&#111;&#114;&#110;&#x69;&#x6e;&#103;&#x5f;&#x70;&#114;&#111;&#64;&#97;&#x74;&#103;&#x75;&#105;&#103;&#x75;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>​    git config –global user.name tom_glb<br>​    git config –global <a href="mailto:&#x67;&#x6f;&#111;&#100;&#x4d;&#111;&#114;&#110;&#x69;&#110;&#103;&#95;&#x70;&#114;&#x6f;&#64;&#x61;&#x74;&#103;&#117;&#x69;&#103;&#x75;&#x2e;&#x63;&#111;&#109;">&#x67;&#x6f;&#111;&#100;&#x4d;&#111;&#114;&#110;&#x69;&#110;&#103;&#95;&#x70;&#114;&#x6f;&#64;&#x61;&#x74;&#103;&#117;&#x69;&#103;&#x75;&#x2e;&#x63;&#111;&#109;</a></p>
 <p>信息保存位置：~/.gitconfig 文件</p>
 <p>级别优先级<br>    就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名<br>    如果只有系统用户级别的签名，就以系统用户级别的签名为准<br>    二者都没有不允许</p>
 <h4 id="创建远程库地址别名"><a href="#创建远程库地址别名" class="headerlink" title="创建远程库地址别名"></a>创建远程库地址别名</h4><p>git remote -v 查看当前所有远程地址别名<br>git remote add [别名] [远程地址]</p>
 <p><img src="/2021/11/25/git-idea/image-20211125214756270.png" alt="image-20211125214756270"></p>
-<h4 id="SSH-登录"><a href="#SSH-登录" class="headerlink" title="SSH 登录"></a>SSH 登录</h4><p>进入当前用户的家目录<br>$ cd ~<br>     删除.ssh 目录<br>$ rm -rvf .ssh<br>     运行命令生成.ssh 密钥目录<br>$ ssh-keygen -t rsa -C <a href="mailto:&#x61;&#x74;&#x67;&#117;&#x69;&#103;&#117;&#50;&#x30;&#49;&#x38;&#121;&#98;&#x75;&#x71;&#x40;&#x61;&#108;&#105;&#121;&#x75;&#x6e;&#46;&#99;&#111;&#x6d;">&#x61;&#x74;&#x67;&#117;&#x69;&#103;&#117;&#50;&#x30;&#49;&#x38;&#121;&#98;&#x75;&#x71;&#x40;&#x61;&#108;&#105;&#121;&#x75;&#x6e;&#46;&#99;&#111;&#x6d;</a><br>[注意：这里-C 这个参数是大写的C]<br>     进入.ssh 目录查看文件列表<br>$ cd .ssh<br>$ ls -lF<br>     查看id_rsa.pub 文件内容</p>
-<p>$ cat id_rsa.pub<br>     复制id_rsa.pub 文件内容，登录GitHub，点击用户头像→Settings→SSH and GPG<br>keys<br>     New SSH Key<br>     输入复制的密钥信息<br>     回到Git bash 创建远程地址别名<br>git remote add origin_ssh <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a>:atguigu2018ybuq/huashan.git<br>     推送文件进行测试</p>
+<h4 id="SSH-登录"><a href="#SSH-登录" class="headerlink" title="SSH 登录"></a>SSH 登录</h4><p>进入当前用户的家目录<br>$ cd ~<br>     删除.ssh 目录<br>$ rm -rvf .ssh<br>     运行命令生成.ssh 密钥目录<br>$ ssh-keygen -t rsa -C <a href="mailto:&#x61;&#116;&#x67;&#x75;&#x69;&#103;&#117;&#50;&#48;&#49;&#56;&#x79;&#98;&#117;&#x71;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#x6e;&#46;&#x63;&#x6f;&#109;">&#x61;&#116;&#x67;&#x75;&#x69;&#103;&#117;&#50;&#48;&#49;&#56;&#x79;&#98;&#117;&#x71;&#64;&#97;&#x6c;&#x69;&#121;&#x75;&#x6e;&#46;&#x63;&#x6f;&#109;</a><br>[注意：这里-C 这个参数是大写的C]<br>     进入.ssh 目录查看文件列表<br>$ cd .ssh<br>$ ls -lF<br>     查看id_rsa.pub 文件内容</p>
+<p>$ cat id_rsa.pub<br>     复制id_rsa.pub 文件内容，登录GitHub，点击用户头像→Settings→SSH and GPG<br>keys<br>     New SSH Key<br>     输入复制的密钥信息<br>     回到Git bash 创建远程地址别名<br>git remote add origin_ssh <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#111;&#109;</a>:atguigu2018ybuq/huashan.git<br>     推送文件进行测试</p>
 <h4 id="Git代理"><a href="#Git代理" class="headerlink" title="Git代理"></a>Git代理</h4><h3 id="socks代理："><a href="#socks代理：" class="headerlink" title="socks代理："></a>socks代理：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy &#x27;socks5://127.0.0.1:1080&#x27; </span><br><span class="line">git config --global https.proxy &#x27;socks5://127.0.0.1:1080&#x27;</span><br></pre></td></tr></table></figure>
 
 <p>要知道更改端口号，这样才能使用魔法去git clone代码以及git push代码</p>
@@ -136,6 +72,68 @@
       </categories>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/09/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Ip-Address</title>
+    <url>/2021/09/22/ipnet/</url>
+    <content><![CDATA[<h1 id="Ip-Address"><a href="#Ip-Address" class="headerlink" title="Ip-Address"></a>Ip-Address</h1><p>​    这是一篇关于IP地址的文章，本篇文章将阐述IP地址与子网掩码和网关的关系。</p>
+<p>​    IP地址是一个由四个8位二进制数字组成，转换成十进制的IP地址如192.168.1.2。其中这四个数字的最大值是255，也就是说IP地址是这样组成的(0-255).(0-255).(0-255).(0-255)。</p>
+<p>​    简单的叙述了IP地址，接下来我们来谈一谈子网掩码，子网掩码是来判断两个IP地址是否处于同一网段的重要依据。子网掩码(subnet mask)又叫<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%8E%A9%E7%A0%81/7862514">网络掩码</a>、<a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E6%8E%A9%E7%A0%81/8623995">地址掩码</a>、子网络遮罩，它用来指明一个<a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80">IP地址</a>的哪些位标识的是<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a>所在的子网，以及哪些位标识的是主机的位掩码。子网掩码不能单独存在，它必须结合IP地址一起使用。子网掩码只有一个作用，就是将某个IP地址划分成<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80/9765459">网络地址</a>和<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80/9765500">主机地址</a>两部分。子网掩码分成这几种0.0.0.0 、255.0.0.0 、255.255.0.0 、255.255.255.0 、255.255.255.255。其中0.0.0.0和255.255.255.255基本上不会使用。</p>
+<h2 id="子网掩码与IP地址的关系"><a href="#子网掩码与IP地址的关系" class="headerlink" title="子网掩码与IP地址的关系:"></a>子网掩码与IP地址的关系:</h2><p>​    假如子网掩码为255.255.255.0。那么IP地址的前三位就是网络地址，最后一位是主机地址。例如:192.168.1.2，那么192.168.1是网络地址，2就是主机地址。例如：192.168.1.3，同理可得192.168.1是网络地址，3是主机地址。像这种192.168.1.2和192.168.1.3这两IP地址前三位一样的就被成为在同一网段。两台主机是可以相互ping通的。而如果是192.168.1.2和192.168.2.3这样的IP地址，由于前三位不一样那么这两台主机就无法相互ping通。</p>
+<p>​    为什么说子网掩码是判断IP地址的重要依据呢？咱们来看看这两个子网掩码的作用，一个子网掩码是255.255.0.0，另一个子网掩码是255.255.255.0。</p>
+<p>1.子网掩码是255.255.0.0</p>
+<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
+<p>由于子网掩码是255.255.0.0所以他的网络地址实际上是前两位，也就是192.168，而主机地址是3.2，另一个主机地址是2.2。由于网络地址都一样是192.168，所以这两台主机处于同一网段。</p>
+<p>2.子网掩码是255.255.255.0</p>
+<p>一台主机的ip地址是192.168.3.2         另一台主机的ip地址是192.168.2.2</p>
+<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.3 和 192.168.2，而主机地址是2，另一个主机地址是2。由于网络地址不一样，所以这两台主机不处于同一网段。</p>
+<p>假如这两台主机的IP地址是这样的,子网掩码是255.255.255.0</p>
+<p>一台主机的ip地址是192.168.5.2         另一台主机的ip地址是192.168.5.7</p>
+<p>由于子网掩码是255.255.255.0，所以他的网络地址实际上是前三位，也就是192.168.5 和 192.168.5，而主机地址是2，另一个主机地址是7。由于网络地址一样，所以这两台主机处于同一网段。</p>
+<p>​    这样你是不是已经理解了子网掩码与网段之间的关系？那么接下来我们来了解一下网段与IP地址数量的关系。</p>
+<h2 id="网段与IP地址数量的关系"><a href="#网段与IP地址数量的关系" class="headerlink" title="网段与IP地址数量的关系"></a>网段与IP地址数量的关系</h2><p>如果子网掩码是255.255.255.0</p>
+<p>一个网段是192.168.3，那么他有多少个主机地址？</p>
+<p>答案是 256个</p>
+<p>即192.168.3.0</p>
+<p>192.168.3.1</p>
+<p>192.168.3.2</p>
+<p>…</p>
+<p>192.168.3.255</p>
+<p>如果子网掩码是255.255.0.0</p>
+<p>一个网段是173.12，那么他有多少个主机地址</p>
+<p>答案是 2的16次方个</p>
+<h1 id="什么是网关"><a href="#什么是网关" class="headerlink" title="什么是网关"></a>什么是网关</h1><p>​    网关(Gateway)又称<a href="https://baike.baidu.com/item/%E7%BD%91%E9%97%B4%E8%BF%9E%E6%8E%A5%E5%99%A8/2943752">网间连接器</a>、<a href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE%E8%BD%AC%E6%8D%A2">协议转换</a>器。网关在网络层以上实现<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E/108997">网络互连</a>，是复杂的网络互连设备，仅用于两个高层协议不同的网络互连。网关既可以用于<a href="https://baike.baidu.com/item/%E5%B9%BF%E5%9F%9F%E7%BD%91/422004">广域网</a>互连，也可以用于<a href="https://baike.baidu.com/item/%E5%B1%80%E5%9F%9F%E7%BD%91">局域网</a>互连。 网关是一种充当转换重任的<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/7210959">计算机系统</a>或设备。使用在不同的<a href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/3351624">通信协议</a>、数据格式或语言，甚至<a href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>完全不同的两种系统之间，网关是一个翻译器。与<a href="https://baike.baidu.com/item/%E7%BD%91%E6%A1%A5/99310">网桥</a>只是简单地传达信息不同，网关对收到的信息要重新打包，以适应目的系统的需求。同层–<a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82/4329788">应用层</a>。</p>
+<p>通常网关地址是网络地址 + 1</p>
+<p>子网掩码是255.255.255.0</p>
+<p>网段是192.168.3</p>
+<p>那么网关地址一般为192.168.3.1</p>
+<p>255.255.0.0是缺省子网掩码，跟网关没多大关系</p>
+<h1 id="广播地址"><a href="#广播地址" class="headerlink" title="广播地址"></a>广播地址</h1><p>​    广播地址**(Broadcast Address)是专门用于同时向网络中所有<a href="https://baike.baidu.com/item/%E5%B7%A5%E4%BD%9C%E7%AB%99/217955">工作站</a>进行发送的一个**地址。在使用[TCP/IP 协议](<a href="https://baike.baidu.com/item/TCP%2FIP">https://baike.baidu.com/item/TCP%2FIP</a> 协议/2116790)的网络中，<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA/455151">主机</a><a href="https://baike.baidu.com/item/%E6%A0%87%E8%AF%86/6396929">标识</a>段host ID 为全1 的IP 地址为广播地址，广播的分组传送给host ID段所涉及的所有<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA/140338">计算机</a>。例如，对于10.1.1.0 （255.0.0.0 ）网段，其直播<a href="https://baike.baidu.com/item/%E5%B9%BF%E6%92%AD/656406">广播</a>地址为10.255.255.255 （255 即为2 进制的11111111 ），当发出一个目的地址为10.255.255.255 的分组（<a href="https://baike.baidu.com/item/%E5%B0%81%E5%8C%85/2017669">封包</a>）时，它将被分发给该<a href="https://baike.baidu.com/item/%E7%BD%91%E6%AE%B5/11026985">网段</a>上的所有计算机。</p>
+]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
